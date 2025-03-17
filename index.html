@@ -175,7 +175,8 @@
             },
             methods: {
                 calculateWeight() {
-                    let volume = 0;if (this.shape === 'rod' && this.diameter && this.length) {
+                    let volume = 0;
+                    if (this.shape === 'rod' && this.diameter && this.length) {
                         let radius = this.diameter / 2 / 1000;
                         volume = Math.PI * Math.pow(radius, 2) * (this.length / 1000); // Volume in m^3
                     } else if (this.shape === 'tube' && this.outerDiameter && this.thickness && this.length) {
@@ -191,8 +192,10 @@
                         volume = (outerArea - innerArea) * (this.length / 1000);
                     }
 
-
-                    this.weight = volume * this.density; // Weight in kg
+                    this.weight =  volume * this.density; // Weight in kg
+                    if (this.weight <=0 ) {
+                        this.weight = null;
+                    }
                 }
             }
         });
