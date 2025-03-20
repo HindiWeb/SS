@@ -1,4 +1,5 @@
-const CACHE_NAME = "ss-weight-calculator-v1";
+var timestampNow = new Date().getTime();
+const CACHE_NAME = "ss-weight-calculator-v1"+ timestampNow;
 const ASSETS = [
     "./index.html",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
@@ -17,5 +18,21 @@ self.addEventListener("fetch", (event) => {
         caches.match(event.request).then((response) => {
             return response || fetch(event.request);
         })
+    );
+});
+
+//delete all other caches
+self.addEventListener("activate", (event) => {
+    const cacheAllowlist = [CACHE_NAME];
+    event.waitUntil(
+        caches.keys().then((keyList) =>
+            Promise.all(
+                keyList.map((key) => {
+                    if (!cacheAllowlist.includes(key)) {
+                        return caches.delete(key);
+                    }
+                })
+            )
+        )
     );
 });
