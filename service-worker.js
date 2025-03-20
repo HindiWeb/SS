@@ -1,4 +1,4 @@
-const CACHE_NAME = "ss-weight-calculator-v2.2"; // Constant cache name (version info is managed in version.json)
+const CACHE_NAME = "ss-weight-calculator-v2.1.1"; // Constant cache name (version info is managed in version.json)
 
 const CACHE_VERSION_KEY = "app-cache-version"; // Key to store version info
 const VERSION_URL = "/version.json"; // URL to fetch version info
