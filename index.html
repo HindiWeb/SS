@@ -196,7 +196,7 @@
 
         </ul>
     </div>
-    <footer class="text-center mt-3">
+    <footer class="text-center mt-3 mb-5 border-bottom">
         <p>&copy; 2025 Dev. All rights reserved.</p>
     </footer>    
     <div class="text-center fixed-bottom bg-dark-subtle">
@@ -413,13 +413,12 @@
                 console.error("Service worker registration failed:", error);
             });
 
-            // Listen for messages from the service worker
-            navigator.serviceWorker.addEventListener("message", (event) => {
-                if (event.data === "skipWaiting") {
-                    console.log("New version ready, reloading page...");
-                    window.location.reload();
-                }
-            });
+            // Check for updates every 24 hours
+            setInterval(() => {
+                navigator.serviceWorker.ready.then((registration) => {
+                    registration.update();
+                });
+            }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
         }
 
     </script>

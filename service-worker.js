@@ -1,4 +1,4 @@
-const CACHE_NAME = "ss-weight-calculator-v2.1.1"; // Constant cache name (version info is managed in version.json)
+const CACHE_NAME = "ss-weight-calculator-v2.1.2"; // Constant cache name (version info is managed in version.json)
 
 const CACHE_VERSION_KEY = "app-cache-version"; // Key to store version info
 const VERSION_URL = "/version.json"; // URL to fetch version info
@@ -7,7 +7,6 @@ const VERSION_URL = "/version.json"; // URL to fetch version info
 const APP_ASSETS = [
     "./index.html",
     "./manifest.json",
-    "./service-worker.js",
     "./icons/icon-192x192.png",
     "./icons/icon-512x512.png",
     "./styles.css",
@@ -106,9 +105,3 @@ self.addEventListener("activate", (event) => {
     );
 });
 
-// ✅ Listen for messages (e.g., to manually trigger skipWaiting).
-self.addEventListener("message", (event) => {
-    if (event.data === "skipWaiting") {
-        self.skipWaiting();
-    }
-});
