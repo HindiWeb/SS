@@ -14,12 +14,19 @@
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
             --theme-color: #096f15;
             --theme-color2: #00c8ff;
+        }
+        .ff-sg {
+            font-family: 'Space Grotesk', sans-serif;
         }
         .theme-color, .tc {
             color: var(--theme-color);
@@ -153,12 +160,12 @@
 
     <div id="result" class="card bg-tc2 my-4 mx-auto " style="max-width: 500px;">
         <div class="mt-3 text-center fw-bold " v-if="weight !== null">
-            <h4>Estimated Weight: {{ weight.toFixed(2) }}<span class="text-muted">0</span> kg</h4>
+            <h4>Estimated Weight: <span class="ff-sg">{{ weight.toFixed(2) }}<span class="text-muted">0</span></span> kg</h4>
         </div>
         <div class="text-center mt-2" v-if="weight !== null">
 
             <p v-if="shape && material" class="m-1"><span>{{ material.toUpperCase() }}</span> | <span>{{ shape.charAt(0).toUpperCase() + shape.slice(1) }}</span></p>
-            <p id="dimentions">
+            <p id="dimentions" class="ff-sg">
                 <span v-if="shape === 'rod'">Ø {{ diameter }} </span>
                 <span v-if="shape === 'pipe'">OD: {{ outerDiameter }} <i class="bi bi-x mx-1"></i> Thickness {{ thickness }} </span>
                 <span v-if="shape === 'rect'"> {{ width }} <i class="bi bi-x mx-1"></i> {{ height }}</span>
@@ -183,7 +190,7 @@
                         | {{ item.shape.charAt(0).toUpperCase() + item.shape.slice(1) }} 
                         </span>
                         <br>
-                        <span class="fw-bold">{{ item.dimentions }} = {{ item.weight }}<span class="text-muted">0</span> kg </span>
+                        <span class="fw-bold ff-sg">{{ item.dimentions }} = {{ item.weight }}<span class="text-muted">0</span> kg </span>
                         <br>
                         <small class="text-muted">{{ item.time }}</small>
                     </div>

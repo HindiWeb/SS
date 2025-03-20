@@ -18,7 +18,8 @@ const LIB_ASSETS = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css",
     "https://code.jquery.com/jquery-3.6.0.min.js",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js",
-    "https://cdn.jsdelivr.net/npm/vue@3.2.47"
+    "https://cdn.jsdelivr.net/npm/vue@3.2.47",
+    "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
 ];
 
 // ✅ Install: Fetch version.json and cache both app and library assets.
