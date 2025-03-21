@@ -94,15 +94,18 @@ async function updateCache(newVersion, updateLibs) {
 self.addEventListener("activate", (event) => {
     event.waitUntil(
         caches.keys().then(cacheNames => {
+            console.log("🗑 Removing old caches...");
             return Promise.all(
                 cacheNames.map(cache => {
                     if (cache !== CACHE_NAME) {
                         console.log("🗑 Deleting old cache:", cache);
+
                         return caches.delete(cache);
                     }
                 })
             );
         }).then(() => self.clients.claim())
     );
+    checkForUpdate();
 });
 

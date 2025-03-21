@@ -1,0 +1,68 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    --theme-color: #096f15;
+    --theme-color2: #00c8ff;
+}
+.ff-sg {
+    font-family: 'Space Grotesk', sans-serif;
+}
+.theme-color, .tc {
+    color: var(--theme-color);
+}
+.b-tc {
+    border-color: var(--theme-color);
+}
+.bg-tc {
+    background-color: var(--theme-color);
+}
+.bg-tc2 {
+    background-color: var(--theme-color2);
+}
+
+.container {
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.mw-800 {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.shape-option, .material-option {
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+    flex: 1;
+    border: 1px solid transparent;
+}
+.material-option {
+    font-size: .9rem;
+}
+.shape-name {
+    font-size: 12px; 
+    line-height: 1;
+}
+.shape-option.active, .material-option.active {
+    border-color: #00c8ff57;
+    box-shadow: 0 0 5px #00c8ff57;
+    border-color: var(--theme-color2);
+    
+    background: #8a9cffd3;  
+    background: #096f15a1;
+    color: rgb(0, 0, 0);
+}
+.btn-lg {
+    font-size: 1.25rem;
+    padding: 12px;
+    width: 100%;
+    border-radius: 10px;
+}
+#installApp {
+    display: none;
+}
