@@ -66,3 +66,18 @@ body {
 #installApp {
     display: none;
 }
+#calcKeys {
+    margin-top: 20px;
+}
+#calcKeys button {
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid transparent;
+}
+#calcKeys button:active {
+    background-color: var(--theme-color);
+    color: white;
+}

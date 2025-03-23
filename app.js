@@ -151,8 +151,8 @@ const app = Vue.createApp({
             this.loadHistory();
         },
         reset() {
-            this.shape = 'rod';
-            this.material = 'ss304';
+            // this.shape = 'rod';
+            // this.material = 'ss304';
             this.diameter = null;
             this.outerDiameter = null;
             this.thickness = null;
@@ -233,6 +233,14 @@ app.mount('#app');
         expression = "";
         calcScreen.value = "";
       } else {
+        //if user presses an operator
+        if (btn === "+" || btn === "-" || btn === "*" || btn === "/") {
+            //if last character is an operator and user presses another operator, remove the last character
+            if ( expression[expression.length - 1] === "+" || expression[expression.length - 1] === "-" || expression[expression.length - 1] === "*" || expression[expression.length - 1] === "/") {
+                expression = expression.slice(0, -1);
+            }
+        }
+
         expression += btn;
         calcScreen.value = expression;
       }
@@ -240,10 +248,10 @@ app.mount('#app');
 
     buttons.forEach((btn, index) => {
         let button = document.createElement("button");
-        button.className = "btn border-primary-subtle m-1 text-center col-2";
+        button.className = "btn text-center col-3";
         button.textContent = btn;
         if(btn === "="){
-            button.className = "btn btn-success btn-outline-primary m-1 text-center text-white col-2 fw-bold";
+            button.className = "btn btn-success btn-outline-primary text-center text-white col-3 fw-bold";
         }else if(btn === "C"){
             button.classList.add("btn-warning");
         }
@@ -267,6 +275,10 @@ app.mount('#app');
         history = [];
         localStorage.removeItem("calcHistory");
         updateHistory();
+    }
+    window.removeLastChar = function() {
+        expression = expression.slice(0, -1);
+        calcScreen.value = expression;
     }
       
   });

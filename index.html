@@ -136,7 +136,7 @@
     </div>
     <footer class="text-center mt-3 mb-5 border-bottom">
         <p>&copy; 2025 Dev. All rights reserved. </p>
-        <div class="text-muted ff-sg mx-1">v2.5.0</div>
+        <div class="text-muted ff-sg mx-1">v3.0.0</div>
     </footer>    
     <div class="text-center fixed-bottom bg-dark-subtle">
         <button class="btn btn-success btn-md m-1" onclick="showCalculator()"> <i class="fas fa-calculator"></i></button>
@@ -169,15 +169,21 @@
     
 <!-- bootstrap -->
 <!-- Calculator Modal -->
-<div class="modal fade" id="calculatorModal" tabindex="-1">
+<div class="modal fade fw-bold" id="calculatorModal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Calculator</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
-        <div class="modal-body">
-          <input type="text" id="calcScreen" class="form-control mb-2" readonly>
+        <div class="modal-body fw-bold">
+          <input type="text" id="calcScreen" class="form-control mb-2 fw-bold" readonly>
+          <div class="bg-warning-subtle me-3">
+            <button class="btn float-end d-block" onclick="removeLastChar()">
+                <i class="fas fa-backspace"></i>
+            </button>
+          </div>
+          <br>
           <div id="calcKeys" class="d-grid gap-2"></div>
             <button class="btn float-end btn-sm btn-outline-warning" onclick="clearHistory()"> <i class="fas fa-trash"></i></button>
           <h6 class="mt-3">Last 20 Calculations: 
