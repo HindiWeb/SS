@@ -58,10 +58,12 @@
 
         <hr>
         <div class="mt-3" v-if="shape !== ''">
-            <label class="form-label w-100">Enter Dimensions (mm)
-                <span class="ms-1 fw-bold" v-if="weight !== null">{{ weight.toFixed(2) }}<span class="text-muted">0</span> kg</span>
-                <button class="btn btn-sm btn-warning border-warning-subtle  float-end btn-md" @click="reset"> <i class="fas fa-trash"></i></button>
-            </label>
+            <div class="d-flex align-content-between gap-2 mb-3">
+                <label class="form-label w-100">Enter Dimensions (mm)
+                    <span class="ms-1 fw-bold" v-if="weight !== null">{{ weight.toFixed(2) }}<span class="text-muted">0</span> kg</span>
+                </label>
+                    <button class="btn btn-sm btn-warning border-warning-subtle  float-end btn-md" @click="reset"> <i class="fas fa-trash"></i></button>
+            </div>
             <Bsig text="Ø" v-if="shape === 'rod'" >
                 <input type="number" class="form-control" v-model.number="diameter" placeholder="Diameter">
             </Bsig>
